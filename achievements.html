@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocé Racing — Achievements</title>
+  <meta name="description" content="Velocé Racing — Celebrating our milestones in motorsport and esports.">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #ff3c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: #ff7777;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #222;
+    }
+
+    header img {
+      width: 130px;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      color: #fff;
+      font-size: 2.5em;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: #bbb;
+      font-size: 1.2em;
+    }
+
+    /* Navigation */
+    nav {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    nav a {
+      margin: 0 10px;
+    }
+
+    /* Intro */
+    .intro {
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .intro h2 {
+      color: #ff3c3c;
+      margin-bottom: 10px;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #222;
+      margin: 20px 0;
+      width: 85%;
+    }
+
+    /* Achievements flex row */
+    .achievements {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px auto;
+      width: 90%;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .achievement-item {
+      min-width: 250px;
+      position: relative;
+      background-color: #111;
+      border: 1px solid #222;
+      overflow: hidden;
+      cursor: pointer;
+      text-align: center;
+      flex-shrink: 0; /* prevent shrinking */
+    }
+
+    .achievement-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .achievement-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .achievement-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      padding: 10px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .achievement-item:hover .achievement-info {
+      transform: translateY(0);
+    }
+
+    .achievement-info h3 {
+      color: #ff3c3c;
+      font-size: 1em;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #777;
+      padding: 15px;
+      border-top: 1px solid #222;
+      margin-top: 30px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .achievements {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="assets/velocelogo.jpg" alt="Velocé Racing Logo">
+    <h1>VELOCÉ RACING</h1>
+    <p>Achievements</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="garage.html">Garage</a> |
+    <a href="subsystems.html">Subsystems</a>
+  </nav>
+
+  <div class="intro">
+    <h2>Our Triumphs</h2>
+  </div>
+
+  <hr>
+
+  <section class="achievements">
+  <div class="achievement-item">
+    <a href="assets/Car2Team.jpg" target="_blank">
+      <img src="assets/Car2Team.jpg" alt="Season 4 Victory">
+    </a>
+    <div class="achievement-info">
+      <h3>Secured First place in COMBUSTION 2023</h3>
+    </div>
+  </div>
+
+  <div class="achievement-item">
+    <a href="assets/car2020.jpg" target="_blank">
+      <img src="assets/car2020.jpg" alt="Season 3 Podium">
+    </a>
+    <div class="achievement-info">
+      <h3>Secured Second place in COMBUSTION 2020</h3>
+    </div>
+  </div>
+
+  <div class="achievement-item">
+    <a href="assets/2019.jpg" target="_blank">
+      <img src="assets/2019.jpg" alt="Esports Championship">
+    </a>
+    <div class="achievement-info">
+      <h3>Secured First place in SAE SUPRA 2019</h3>
+    </div>
+  </div>
+</section>
+
+<style>
+.achievements {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px auto;
+  width: 90%;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.achievement-item {
+  min-width: 180px; /* reduced size */
+  max-width: 220px; /* optional max width */
+  position: relative;
+  background-color: #111;
+  border: 1px solid #222;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.achievement-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.achievement-item:hover img {
+  transform: scale(1.1);
+}
+
+.achievement-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 8px; /* slightly smaller padding */
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.achievement-item:hover .achievement-info {
+  transform: translateY(0);
+}
+
+.achievement-info h3 {
+  color: #ff3c3c;
+  font-size: 0.9em; /* smaller text */
+}
+</style>
+
+
+  <hr>
+
+  <footer>
+    © 2025 Velocé Racing — Achievements
+  </footer>
+
+</body>
+</html>

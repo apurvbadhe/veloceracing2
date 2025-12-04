@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocé Racing</title>
+  <meta name="description" content="Velocé Racing">
+  <meta name="author" content="Velocé Racing">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #ff1e1e;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #ff5656;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: 2px solid #333;
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+    }
+
+    header h1 {
+      margin: 10px 0;
+      font-size: 2.5em;
+      color: #fff;
+    }
+
+    header p {
+      color: #ccc;
+      font-size: 1.2em;
+    }
+
+    nav {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+
+    section {
+      width: 90%;
+      max-width: 1200px;
+      margin: 30px auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: #0b0b0b;
+      width: 45%;
+      min-width: 250px;
+      border: 1px solid #222;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .card p {
+      color: #ccc;
+      padding: 0 10px 10px 10px;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+      overflow: hidden;
+    }
+
+    .card:hover p {
+      max-height: 500px; /* Enough to show content */
+      opacity: 1;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #111;
+      padding: 20px;
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    form label {
+      font-weight: bold;
+    }
+
+    form input, form select, form button {
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+
+    form input, form select {
+      width: 100%;
+    }
+
+    form button {
+      background-color: #ff1e1e;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: #ff5656;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      border-top: 2px solid #333;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="assets/velocelogo.jpg" alt="Velocé Racing Logo">
+    <h1>Velocé Racing</h1>
+    <p>Engineering Performance. Redefining Speed.</p>
+  </header>
+
+  <nav>
+    <a href="garage.html">Garage</a>
+    <a href="subsystems.html">Subsystems</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="https://www.facebook.com/TeamVeloce/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/veloce_racing_india/" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/company/team-veloce-racing/posts/?feedView=all" target="_blank">LinkedIn</a>
+    <a href="https://www.youtube.com/@veloceracing8118" target="_blank">YouTube</a>
+  </nav>
+
+  <section>
+    <h2>Our Expertise</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>AERODYNAMICS</h3>
+        <p>Our Aerodynamics Department enhances on-track performance through precision CAD modeling in SolidWorks, followed by advanced CFD simulations using Siemens Simcenter Star-CCM+ and ANSYS. This process optimizes airflow and cooling systems to balance downforce and drag. We then translate these sophisticated designs into high-performance reality using carbon-fiber composites.</p>
+      </div>
+
+      <div class="card">
+        <h3>BRAKES</h3>
+        <p>As a brake systems engineer, you will design, develop, and test critical components like brake discs, calipers, and master cylinders. Using CAD software and simulation tools, you will create high-performance brake systems that meet stringent safety and performance standards. Collaborating with manufacturing partners, you will oversee production and conduct real-world testing to validate designs.</p>
+      </div>
+
+      <div class="card">
+        <h3>CAE</h3>
+        <p>The CAE (Computer-Aided Engineering) subsystem is the computational core that drives innovation in our race car design. We harness the power of advanced software and simulation to design, analyze, and optimize every component and system before they ever see the physical world.</p>
+      </div>
+
+      <div class="card">
+        <h3>CHASSIS</h3>
+        <p>Students will gain practical experience in designing chassis structures. A chassis is the car's backbone, housing components such as the powertrain, suspension, brakes, and body. Effective chassis design prioritizes ergonomics, safety compliance, lightweight construction, and rigidity.</p>
+      </div>
+
+      <div class="card">
+        <h3>TRANSMISSION</h3>
+        <p>Our transmission system efficiently transmits power from the motor to the driven wheels, enhancing vehicle performance. We design custom parts using advanced software tools like SolidWorks, Kiss-Soft, and MATLAB.</p>
+      </div>
+
+      <div class="card">
+        <h3>SUSPENSION</h3>
+        <p>The suspension module exemplifies the integration of precision engineering and high-performance dynamics, aiming for maximum grip and stability by prioritizing the 3C's: control, comfort, and contact.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>About Us</h2>
+    <p>Veloce Racing is a Formula Student team who compete in the largest Engineering Design Competition in India.</p>
+  </section>
+
+  <section>
+    <h2>Contact Us</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="branch">Branch:</label>
+      <select id="branch" name="branch" required>
+        <option value="">-- Select your branch --</option>
+        <option value="Mechanical">Mechanical Engineering</option>
+        <option value="Computer">Computer Engineering</option>
+        <option value="Electronics">Electronics & Telecommunication</option>
+      </select>
+
+      <label for="email">College ID (Email):</label>
+      <input type="email" id="email" name="email" placeholder="name.PRNnumber@vit.edu" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </form>
+  </section>
+  <center>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7568.873975523702!2d73.868695!3d18.463855!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eb337244e7e9%3A0x463a0f96ee646770!2sVeloce%20Racing%20India!5e0!3m2!1sen!2sin!4v1761475555707!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+        </iframe>
+    </center>
+
+  <footer>
+    <p>666, Upper Indira Nagar, Bibwewadi, Pune, Maharashtra 411037</p>
+    <p>Mon–Sat: 10 AM – 7 PM | Sunday: Closed</p>
+    <p>Email: <a href="mailto:teamveloceracing@gmail.com">teamveloceracing@gmail.com</a></p>
+    <p>© 2025 Velocé Racing</p>
+  </footer>
+
+</body>
+</html>
