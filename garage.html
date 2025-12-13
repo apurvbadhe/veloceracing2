@@ -1,265 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Velocé Racing — Gallery</title>
-  <meta name="description" content="Velocé Racing — Official gallery showcasing cars, events, and team highlights.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velocé Racing — Gallery</title>
 
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-    body {
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
+body {
+  color: #fff;
+  background: #000;
+  line-height: 1.6;
+}
 
-    a {
-      color: #ff3c3c;
-      text-decoration: none;
-      font-weight: bold;
-    }
 
-    a:hover {
-      color: #ff7777;
-    }
+.video-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
 
-    /* Header */
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 2px solid #222;
-    }
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: -1;
+}
 
-    header img {
-      width: 130px;
-      margin-bottom: 10px;
-    }
 
-    header h1 {
-      color: #fff;
-      font-size: 2.5em;
-      margin-bottom: 5px;
-    }
+header {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 2px solid #222;
+}
 
-    header p {
-      color: #bbb;
-      font-size: 1.2em;
-    }
+header img {
+  width: 120px;
+}
 
-    /* Navigation */
-    nav {
-      text-align: center;
-      margin: 15px 0;
-    }
+header h1 {
+  font-size: 2.2rem;
+}
 
-    nav a {
-      margin: 0 10px;
-    }
+header p {
+  color: #bbb;
+}
 
-    /* Intro */
-    .intro {
-      text-align: center;
-      margin: 20px auto;
-      max-width: 900px;
-    }
 
-    .intro h2 {
-      color: #ff3c3c;
-      margin-bottom: 10px;
-    }
+nav {
+  text-align: center;
+  margin: 15px 0;
+}
 
-    .intro p {
-      color: #ccc;
-    }
+nav a {
+  margin: 0 8px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #ff3c3c;
+  color: #ff3c3c;
+  transition: 0.3s;
+}
 
-    hr {
-      border: 0;
-      border-top: 1px solid #222;
-      margin: 20px 0;
-      width: 85%;
-    }
+nav a:hover,
+nav a:active {
+  background: #ff3c3c;
+  color: #000;
+  box-shadow: 0 0 15px #ff3c3c;
+}
 
-    /* Gallery Grid: 2 per row */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      width: 90%;
-      margin: 20px auto;
-    }
 
-    /* Gallery Item */
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      background-color: #111;
-      border: 1px solid #222;
-      cursor: pointer;
-    }
+.intro {
+  text-align: center;
+  max-width: 900px;
+  margin: 25px auto;
+}
 
-    .gallery-item img {
-      width: 100%;
-      display: block;
-      transition: transform 0.5s ease;
-    }
+.intro h2 {
+  color: #ff3c3c;
+  margin-bottom: 8px;
+}
 
-    .gallery-item:hover img {
-      transform: scale(1.1);
-    }
+.intro p {
+  color: #ccc;
+}
 
-    /* Hover Info Overlay */
-    .gallery-info {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.75);
-      color: #fff;
-      padding: 15px;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
-      text-align: center;
-    }
 
-    .gallery-item:hover .gallery-info {
-      transform: translateY(0);
-    }
+.gallery {
+  width: 90%;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 20px;
+}
 
-    .gallery-info h3 {
-      color: #ff3c3c;
-      margin-bottom: 5px;
-    }
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #222;
+  cursor: pointer;
+}
 
-    .gallery-info p {
-      font-size: 0.95em;
-      color: #ccc;
-    }
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
 
-    /* Footer */
-    footer {
-      text-align: center;
-      color: #777;
-      padding: 15px;
-      border-top: 1px solid #222;
-      margin-top: 30px;
-    }
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+
+.gallery-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  padding: 14px;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-info h3 {
+  color: #ff3c3c;
+  margin-bottom: 5px;
+}
+
+.gallery-info p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+
+.gallery-item:hover .gallery-info {
+  transform: translateY(0);
+}
+
+
+.gallery-item.active .gallery-info {
+  transform: translateY(0);
+}
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  border-top: 1px solid #222;
+  margin-top: 40px;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <img src="assets/velocelogo.jpg" alt="Velocé Racing Logo">
-    <h1>VELOCÉ RACING</h1>
-    <p>Gallery</p>
-  </header>
 
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="achievements.html">Achievements</a> |
-    <a href="subsystems.html">Subsystems</a>
-  </nav>
+<video class="video-bg" autoplay muted loop playsinline>
+  <source src="assets/bg.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
 
-  <div class="intro">
-    <h2>Welcome to Our Gallery</h2>
-    <p>Experience the spirit of engineering and speed — our best shots from the track, workshop, and events.</p>
+<header>
+  <img src="assets/velocelogo.jpg" alt="Velocé Racing">
+  <h1>VELOCÉ RACING</h1>
+  <p>Gallery</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="subsystems.html">Subsystems</a>
+</nav>
+
+<div class="intro">
+  <h2>Welcome to Our Gallery</h2>
+  <p>Engineering, teamwork, and speed — captured where it matters.</p>
+</div>
+
+<section class="gallery">
+
+  <div class="gallery-item">
+    <img src="assets/Car1.jpg" alt="Car 2024">
+    <div class="gallery-info">
+      <h3>Car of 2024</h3>
+      <p>Precision meets adrenaline.</p>
+    </div>
   </div>
 
-  <hr>
-
-  <section class="gallery">
-    <div class="gallery-item">
-      <a href="assets/Car1.jpg" target="_blank">
-        <img src="assets/Car1.jpg" alt="Race Car 1">
-      </a>
-      <div class="gallery-info">
-        <h3>Car of 2024</h3>
-        <p>Precision meets adrenaline on the circuit.</p>
-      </div>
+  <div class="gallery-item">
+    <img src="assets/car1team.jpg" alt="Team 2024">
+    <div class="gallery-info">
+      <h3>Team of 2024</h3>
+      <p>Built by passion and caffeine.</p>
     </div>
-
-    <div class="gallery-item">
-      <a href="assets/car1team.jpg" target="_blank">
-        <img src="assets/car1team.jpg" alt="Car Build">
-      </a>
-      <div class="gallery-info">
-        <h3>Team of 2024</h3>
-        <p>The making of a performance machine.</p>
-      </div>
-    </div>
-
-    <div class="gallery-item">
-      <a href="assets/pit1jpg.jpg" target="_blank">
-        <img src="assets/pit1jpg.jpg" alt="Pit Crew">
-      </a>
-      <div class="gallery-info">
-        <h3>Pit Crew — Rapid Response</h3>
-        <p>Every second counts on race day.</p>
-      </div>
-    </div>
-
-    <div class="gallery-item">
-      <a href="assets/car2.jpg" target="_blank">
-        <img src="assets/car2.jpg" alt="Car">
-      </a>
-      <div class="gallery-info">
-        <h3>Car of 2023</h3>
-        <p>United by engineering excellence.</p>
-      </div>
-    </div>
-
-    <div class="gallery-item">
-      <a href="assets/Car2Team.jpg" target="_blank">
-        <img src="assets/Car2Team.jpg" alt="Event">
-      </a>
-      <div class="gallery-info">
-        <h3>Team</h3>
-        <p>Moments of victory and pride.</p>
-      </div>
-    </div>
-
-    <div class="gallery-item">
-      <a href="assets/pit2.jpg" target="_blank">
-        <img src="assets/pit2.jpg" alt="Car Detail">
-      </a>
-      <div class="gallery-info">
-        <h3>Pit Crew</h3>
-        <p>Craftsmanship at every curve.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr>
-
-  <div style="text-align:center; margin: 20px 0;">
-    <p style="color:#ccc;">Follow us for more:</p>
-    <a href="https://www.facebook.com/TeamVeloce/" target="_blank">Facebook</a> |
-    <a href="https://www.instagram.com/veloce_racing_india/" target="_blank">Instagram</a> |
-    <a href="https://www.linkedin.com/company/team-veloce-racing/" target="_blank">LinkedIn</a> |
-    <a href="https://www.youtube.com/@veloceracing8118" target="_blank">YouTube</a>
   </div>
 
-  <footer>
-    © 2025 Velocé Racing — Gallery
-  </footer>
+  <div class="gallery-item">
+    <img src="assets/pit1jpg.jpg" alt="Pit Crew">
+    <div class="gallery-info">
+      <h3>Pit Crew</h3>
+      <p>Every second is sacred.</p>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="assets/car2.jpg" alt="Car 2023">
+    <div class="gallery-info">
+      <h3>Car of 2023</h3>
+      <p>Foundation of performance.</p>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="assets/Car2Team.jpg" alt="Team">
+    <div class="gallery-info">
+      <h3>Team Moments</h3>
+      <p>Victory, failure, repeat.</p>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="assets/pit2.jpg" alt="Pit Work">
+    <div class="gallery-info">
+      <h3>Pit Work</h3>
+      <p>Details win races.</p>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  © 2025 Velocé Racing — Gallery
+</footer>
+
+<script>
+document.querySelectorAll(".gallery-item").forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("active");
+  });
+});
+</script>
 
 </body>
 </html>
