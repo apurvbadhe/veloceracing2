@@ -6,159 +6,45 @@
 <title>Velocé Racing — Achievements</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+/* ... (Keep your existing styles) ... */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body { background: #000; color: #fff; line-height: 1.6; }
+.video-bg { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: -1; }
+header { text-align: center; padding: 20px; border-bottom: 2px solid #222; }
+header img { width: 120px; }
+nav { text-align: center; margin: 15px 0; }
+nav a, .admin-btn { margin: 0 8px; padding: 8px 14px; border-radius: 20px; border: 1px solid #ff3c3c; color: #ff3c3c; transition: 0.3s; text-decoration: none; background: transparent; cursor: pointer; }
+nav a:hover, .admin-btn:hover { background: #ff3c3c; color: #000; box-shadow: 0 0 15px #ff3c3c; }
 
-body {
-  background: #000;
-  color: #fff;
-  line-height: 1.6;
-}
+.achievements { display: flex; justify-content: center; gap: 20px; width: 90%; margin: 30px auto; overflow-x: auto; padding-bottom: 20px; }
+.achievement-item { min-width: 300px; max-width: 320px; position: relative; background: #111; border: 1px solid #222; flex-shrink: 0; padding-bottom: 10px;}
+.achievement-item img { width: 100%; display: block; transition: transform 0.4s ease; }
+.achievement-info { background: rgba(0,0,0,0.8); padding: 10px; text-align: center; }
 
-/* ---------- VIDEO BACKGROUND ---------- */
-.video-bg {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
+/* ADMIN MODE SPECIFIC STYLES */
+.admin-only { display: none; }
+body.admin-mode .admin-only { display: inline-block; }
+body.admin-mode .editable { border: 1px dashed #ff3c3c; padding: 2px; }
+.delete-btn { background: #ff3c3c; color: white; border: none; padding: 5px 10px; cursor: pointer; margin-top: 10px; border-radius: 4px; }
+.add-btn { display: block; margin: 20px auto; background: green; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
 
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  z-index: -1;
-}
+footer { text-align: center; padding: 20px; color: #777; border-top: 1px solid #222; margin-top: 40px; }
+/* Hide admin controls by default */
+.admin-only, .delete-btn, .add-btn { display: none; }
 
-/* ---------- HEADER ---------- */
-header {
-  text-align: center;
-  padding: 20px;
-  border-bottom: 2px solid #222;
-}
+/* Show them when body has .admin-mode */
+body.admin-mode .admin-only, 
+body.admin-mode .delete-btn, 
+body.admin-mode .add-btn { display: inline-block; }
 
-header img {
-  width: 120px;
-}
-
-header h1 {
-  font-size: 2.3rem;
-}
-
-header p {
-  color: #bbb;
-}
-
-/* ---------- NAV ---------- */
-nav {
-  text-align: center;
-  margin: 15px 0;
-}
-
-nav a {
-  margin: 0 8px;
-  padding: 8px 14px;
-  border-radius: 20px;
-  border: 1px solid #ff3c3c;
-  color: #ff3c3c;
-  transition: 0.3s;
-}
-
-nav a:hover,
-nav a:active {
-  background: #ff3c3c;
-  color: #000;
-  box-shadow: 0 0 15px #ff3c3c;
-}
-
-/* ---------- INTRO ---------- */
-.intro {
-  text-align: center;
-  margin: 25px auto;
-}
-
-.intro h2 {
-  color: #ff3c3c;
-}
-
-/* ---------- ACHIEVEMENTS ---------- */
-.achievements {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  width: 90%;
-  margin: 30px auto;
-  overflow-x: auto;
-}
-
-.achievement-item {
-  min-width: 300px;
-  max-width: 320px;
-  position: relative;
-  background: #111;
-  border: 1px solid #222;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.achievement-item img {
-  width: 100%;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.achievement-item:hover img {
-  transform: scale(1.08);
-}
-
-/* ---------- INFO BAR ---------- */
-.achievement-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.8);
-  padding: 10px;
-  text-align: center;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-}
-
-.achievement-info h3 {
-  color: #ff3c3c;
-  font-size: 0.95rem;
-}
-
-/* Desktop hover */
-.achievement-item:hover .achievement-info {
-  transform: translateY(0);
-}
-
-/* Mobile tap */
-.achievement-item.active .achievement-info {
-  transform: translateY(0);
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #777;
-  border-top: 1px solid #222;
-  margin-top: 40px;
-}
+/* Highlight editable areas for the admin */
+body.admin-mode .editable { border: 1px dashed #ff3c3c; padding: 2px; }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO BACKGROUND -->
 <video class="video-bg" autoplay muted loop playsinline>
   <source src="assets/bg.mp4" type="video/mp4">
 </video>
@@ -174,35 +60,37 @@ footer {
   <a href="index.html">Home</a>
   <a href="garage.html">Garage</a>
   <a href="subsystems.html">Subsystems</a>
+  <button id="loginBtn" class="admin-btn" onclick="toggleAdminMode()">Admin Login</button>
 </nav>
 
 <div class="intro">
-  <h2>Our Triumphs</h2>
+  <h2 class="editable">Our Triumphs</h2>
+  <button class="admin-only add-btn" onclick="addNewAchievement()">+ Add New Achievement</button>
 </div>
 
-<section class="achievements">
-
+<section class="achievements" id="achievements-list">
   <div class="achievement-item">
     <img src="assets/Car2Team.jpg" alt="Combustion 2023">
     <div class="achievement-info">
-      <h3>1st Place — COMBUSTION 2023</h3>
+      <h3 class="editable">1st Place — COMBUSTION 2023</h3>
+      <button class="admin-only delete-btn" onclick="removeElement(this)">Delete Event</button>
+    
     </div>
   </div>
+
+  <div class="admin-only" style="text-align: center; margin-top: 10px;">
+    <button onclick="addNewAchievement()" style="padding: 10px; background-color: green; color: white; margin-right: 10px;">+ Add New Achievement</button>
+    
+    <button onclick="sendEmailUpdate()" style="padding: 10px; background-color: #007bff; color: white;">📧 Email Update to Students</button>
+</div>
 
   <div class="achievement-item">
     <img src="assets/car2020.jpg" alt="Combustion 2020">
     <div class="achievement-info">
-      <h3>2nd Place — COMBUSTION 2020</h3>
+      <h3 class="editable">2nd Place — COMBUSTION 2020</h3>
+      <button class="admin-only delete-btn" onclick="removeElement(this)">Delete Event</button>
     </div>
   </div>
-
-  <div class="achievement-item">
-    <img src="assets/2019.jpg" alt="SAE SUPRA 2019">
-    <div class="achievement-info">
-      <h3>1st Place — SAE SUPRA 2019</h3>
-    </div>
-  </div>
-
 </section>
 
 <footer>
@@ -210,11 +98,213 @@ footer {
 </footer>
 
 <script>
-/* Enable tap-to-toggle info on mobile */
+/* ---------- ADMIN & EDITING LOGIC ---------- */
+function toggleAdminMode() {
+    const body = document.body;
+    const btn = document.getElementById('loginBtn');
+
+    if (body.classList.contains('admin-mode')) {
+        body.classList.remove('admin-mode');
+        btn.innerText = "Admin Login";
+        disableEditing();
+        alert("Logged out: Student View Active");
+    } else {
+        const password = prompt("Enter Admin Password:");
+        if (password === "griffin123") { 
+            body.classList.add('admin-mode');
+            btn.innerText = "Logout (Admin)";
+            enableEditing();
+            alert("Login Success: You can now click text to edit it.");
+        } else {
+            alert("Wrong Password!");
+        }
+    }
+}
+
+function enableEditing() {
+    document.querySelectorAll('.editable').forEach(el => {
+        el.setAttribute('contenteditable', 'true');
+    });
+}
+
+function disableEditing() {
+    document.querySelectorAll('.editable').forEach(el => {
+        el.setAttribute('contenteditable', 'false');
+    });
+}
+
+function removeElement(button) {
+    if (confirm("Are you sure you want to delete this event?")) {
+        button.closest('.achievement-item').remove();
+    }
+}
+
+function addNewAchievement() {
+    const container = document.getElementById('achievements-list');
+    const newDiv = document.createElement('div');
+    newDiv.className = 'achievement-item';
+    newDiv.innerHTML = `
+        <img src="assets/placeholder.jpg" alt="New Event">
+        <div class="achievement-info">
+            <h3 class="editable" contenteditable="true">New Event Title</h3>
+            <button class="admin-only delete-btn" style="display:inline-block;" onclick="removeElement(this)">Delete Event</button>
+        </div>
+    `;
+    container.prepend(newDiv); 
+}
+
+/* ---------- FORM HANDLING (If form exists on page) ---------- */
+const form = document.querySelector('form');
+if(form) {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const nameInput = document.getElementById('name');
+        const phoneInput = document.getElementById('phone');
+        const emailInput = document.getElementById('email');
+        const branchInput = document.getElementById('branch');
+        const dobInput = document.getElementById('dob');
+        const domainInput = document.getElementById('domainSelect'); 
+        
+        // Fix for the division selector logic
+        const divisionOptions = document.getElementsByName('options');
+        let selectedDivision = '';
+        for(let i = 0; i < divisionOptions.length; i++){
+            if(divisionOptions[i].checked){
+                const label = document.querySelector(`label[for="${divisionOptions[i].id}"]`);
+                selectedDivision = label ? label.innerText : divisionOptions[i].value;
+            }
+        }
+
+        let isValid = true;
+        let errorMessage = "";
+
+        if (nameInput.value.trim() === "") {
+            errorMessage += "- Name is required.\n";
+            isValid = false;
+        }
+
+        const phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(phoneInput.value)) {
+            errorMessage += "- Phone number must be exactly 10 digits.\n";
+            isValid = false;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailInput.value)) {
+            errorMessage += "- Please enter a valid email address.\n";
+            isValid = false;
+        }
+
+        if (!isValid) {
+            alert("Please fix the following errors:\n" + errorMessage);
+            return;
+        }
+
+        const formData = {
+            name: nameInput.value,
+            phone: phoneInput.value,
+            email: emailInput.value,
+            branch: branchInput.value,
+            division: selectedDivision,
+            dob: dobInput.value,
+            domain: domainInput.value,
+            timestamp: new Date().toLocaleString()
+        };
+
+        let allSubmissions = JSON.parse(localStorage.getItem('teamGriffinSubmissions')) || [];
+        allSubmissions.push(formData);
+        localStorage.setItem('teamGriffinSubmissions', JSON.stringify(allSubmissions));
+
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(formData, null, 2));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "registration_" + nameInput.value + ".json");
+        document.body.appendChild(downloadAnchorNode); 
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+
+        alert("Registration Successful!\nData saved to LocalStorage and downloaded.");
+        form.reset();
+    });
+}
+function toggleAdminMode() {
+    const body = document.body;
+    const btn = document.getElementById('loginBtn');
+
+    // If already in Admin Mode, Log Out
+    if (body.classList.contains('admin-mode')) {
+        body.classList.remove('admin-mode');
+        btn.innerText = "Admin Login";
+        disableEditing();
+        alert("Logged out: Student View Active");
+    } 
+    // Otherwise, Log In
+    else {
+        const password = prompt("Enter Admin Password:");
+        if (password === "griffin123") { 
+            body.classList.add('admin-mode');
+            btn.innerText = "Logout (Admin)";
+            enableEditing();
+            alert("Login Success: You can now click text to edit it and use management buttons.");
+        } else {
+            alert("Wrong Password!");
+        }
+    }
+}
+
+/**
+ * EDITING CONTROLS
+ */
+function enableEditing() {
+    // Selects all elements with the 'editable' class
+    const editables = document.querySelectorAll('.editable');
+    editables.forEach(el => {
+        el.setAttribute('contenteditable', 'true');
+    });
+}
+
+function disableEditing() {
+    const editables = document.querySelectorAll('.editable');
+    editables.forEach(el => {
+        el.setAttribute('contenteditable', 'false');
+    });
+}
+
+/**
+ * ELEMENT MANAGEMENT
+ */
+function removeElement(button) {
+    if (confirm("Are you sure you want to delete this event?")) {
+        // Removes the parent 'achievement-item' div
+        button.closest('.achievement-item').remove();
+    }
+}
+
+function addNewAchievement() {
+    const container = document.getElementById('achievements-list');
+    
+    const newDiv = document.createElement('div');
+    newDiv.className = 'achievement-item';
+    
+    // Structure matches your CSS and existing layout
+    newDiv.innerHTML = `
+        <img src="assets/placeholder.jpg" alt="New Event">
+        <div class="achievement-info">
+            <h3 class="editable" contenteditable="true">New Event Title</h3>
+            <button class="admin-only delete-btn" onclick="removeElement(this)">Delete Event</button>
+        </div>
+    `;
+    
+    // Adds to the start of the list
+    container.prepend(newDiv); 
+}
+
+// Initial listener for mobile tap support from your previous code
 document.querySelectorAll(".achievement-item").forEach(item => {
-  item.addEventListener("click", () => {
-    item.classList.toggle("active");
-  });
+    item.addEventListener("click", () => {
+        item.classList.toggle("active");
+    });
 });
 </script>
 
